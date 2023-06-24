@@ -1,0 +1,17 @@
+gcc -o senzor_pritiska senzor_pritiska.c -lmosquitto
+./senzor_pritiska
+
+gcc -o senzor_temperature senzor_temperature.c -lmosquitto
+./senzor_temperature
+
+gcc -o aktuator_zvucnik_prit aktuator_zvucnik_prit.c -lmosquitto
+./aktuator_zvucnik_prit
+
+gcc -o aktuator_zvucnik_temp aktuator_zvucnik_temp.c -lmosquitto
+./aktuator_zvucnik_temp
+
+make kontrolna_tacka_clean
+make kontrolna_tacka.
+/kontrolna_tacka
+
+

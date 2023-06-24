@@ -1,0 +1,26 @@
+IDIR =../include
+CC=gcc
+CFLAGS=-ggdb -I$(IDIR) -Wall
+
+ODIR=obj
+LDIR =../lib
+
+LIBS=-lm -lpthread
+
+_DEPS = #kontrolna_tacka.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = kontrolna_tacka.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+
+$(ODIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+kontrolna_tacka: $(OBJ)
+	gcc -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+
+clean:
+	rm -f kontrolna_tacka $(ODIR)/*.o *~ core $(INCDIR)/*~ 
